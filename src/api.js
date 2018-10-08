@@ -1,10 +1,33 @@
+const path = require('path')
 const express = require('express')
+const cors = require('cors')
 const serveStatic = require('serve-static')
 const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
 const app = express()
 const PBL_PATH = `${process.cwd()}/build/${process.env.MODE === 'PROD' ? 'prod' : 'dev'}`
+
+// set cors options
+const whitelistFile = path.join(__dirname, './whitelist.json')
+const whitelist = require(whitelistFile)
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin) return callback('Origin Not Allowed', false)
+
+    var isAllowed = whitelist.some(allowedDomain => {
+      return origin.match('^' + allowedDomain)
+    })
+
+    // allowed domain
+    if (isAllowed) return callback(null, true)
+
+    // not allowed domain
+    callback('Origin Not Allowed', false)
+  }
+}
+
+app.use(cors(corsOptions))
 
 app.use(cookieParser())
 app.use(bodyParser.json())
