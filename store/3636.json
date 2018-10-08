@@ -1,0 +1,25 @@
+{
+  "id": 3636,
+  "company": "chelementum",
+  "username": "albertomiranda",
+  "permissions": [
+    "home",
+    "orders",
+    "change-password",
+    "logout",
+    "orders",
+    "about"
+  ],
+  "current_monthly_quantity": 0,
+  "name": "Alberto",
+  "lastname": "Miranda",
+  "email": "albertomiranda",
+  "company_id": 105,
+  "gcm_id": null,
+  "hierarchies": "[\"1\",\"17\"]",
+  "created_at": "2017-07-18 12:42:35",
+  "updated_at": "2018-07-31 11:03:44",
+  "deleted_at": null,
+  "is_android": 1,
+  "monthly_quantity": 0
+}
