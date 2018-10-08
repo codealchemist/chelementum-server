@@ -4,6 +4,7 @@
 
 ### Added
 
+- CORS + whitelist + credentials.
 - Standard coding style + .eslintrc file.
 - Test script running linter.
 - Changelog ;)

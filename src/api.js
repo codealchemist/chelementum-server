@@ -12,6 +12,7 @@ const PBL_PATH = `${process.cwd()}/build/${process.env.MODE === 'PROD' ? 'prod' 
 const whitelistFile = path.join(__dirname, './whitelist.json')
 const whitelist = require(whitelistFile)
 const corsOptions = {
+  credentials: true,
   origin: function (origin, callback) {
     if (!origin) return callback('Origin Not Allowed', false)
 
