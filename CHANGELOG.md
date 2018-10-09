@@ -1,5 +1,15 @@
 # chelementum-server changelog
 
+## v1.1.0
+
+### Added
+
+- Free The Viandas! list.
+
+### Changed
+
+- Not using CORS on dev mode.
+
 ## v1.0.0
 
 ### Added

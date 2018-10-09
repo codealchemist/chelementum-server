@@ -6,7 +6,8 @@ const bodyParser = require('body-parser')
 const cookieParser = require('cookie-parser')
 
 const app = express()
-const PBL_PATH = `${process.cwd()}/build/${process.env.MODE === 'PROD' ? 'prod' : 'dev'}`
+const env = process.env.MODE === 'PROD' ? 'prod' : 'dev'
+const PBL_PATH = `${process.cwd()}/build/${env}`
 
 // set cors options
 const whitelistFile = path.join(__dirname, './whitelist.json')
@@ -17,7 +18,7 @@ const corsOptions = {
     if (!origin) return callback('Origin Not Allowed (empty)', false)
 
     var isAllowed = whitelist.some(allowedDomain => {
-      return origin.match('^' + allowedDomain)
+      return origin.match(`^${allowedDomain}`)
     })
 
     // allowed domain
@@ -29,7 +30,7 @@ const corsOptions = {
 }
 
 app.use(cookieParser())
-app.use(cors(corsOptions))
+if (env === 'prod') app.use(cors(corsOptions))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(serveStatic(PBL_PATH, { index: ['index.html'] }))
