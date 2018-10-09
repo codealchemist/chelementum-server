@@ -28,9 +28,8 @@ const corsOptions = {
   }
 }
 
-app.use(cors(corsOptions))
-
 app.use(cookieParser())
+app.use(cors(corsOptions))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(serveStatic(PBL_PATH, { index: ['index.html'] }))
