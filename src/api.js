@@ -14,7 +14,7 @@ const whitelist = require(whitelistFile)
 const corsOptions = {
   credentials: true,
   origin: function (origin, callback) {
-    if (!origin) return callback('Origin Not Allowed', false)
+    if (!origin) return callback('Origin Not Allowed (empty)', false)
 
     var isAllowed = whitelist.some(allowedDomain => {
       return origin.match('^' + allowedDomain)
@@ -24,7 +24,7 @@ const corsOptions = {
     if (isAllowed) return callback(null, true)
 
     // not allowed domain
-    callback('Origin Not Allowed', false)
+    callback(`Origin Not Allowed: ${origin}`, false)
   }
 }
 

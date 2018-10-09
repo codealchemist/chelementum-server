@@ -4,10 +4,15 @@
 
 ### Added
 
+- Local origins added to whitelist.
 - CORS + whitelist + credentials.
 - Standard coding style + .eslintrc file.
 - Test script running linter.
 - Changelog ;)
+
+### Changed
+
+- Displaying not allowed origins on log.
 
 ### Fixed
 
