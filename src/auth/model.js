@@ -23,7 +23,7 @@ me.login = params => {
 
       const result = Object.assign(response.result, {
         company: params.company,
-        permissions: ['home', 'orders', 'change-password', 'logout', 'orders', 'about']
+        permissions: ['home', 'orders', 'free-the-viandas', 'change-password', 'logout', 'orders', 'about']
       })
 
       return { result }
